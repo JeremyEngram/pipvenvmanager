@@ -1,9 +1,13 @@
-Here's a script that manages python pip packages and virtual environments...
+Here's a script that manages python pip packages and virtual environments by removing all installed pip packages without virtual environments and reinstalls them with virtual environments... BECAUSE YOU KNOW YOU'LL FORGET!
 
 
+INSTALLATION:
+bash init.pipenvman
 
 git clone https://github.com/JeremyEngram/pipvenvmanager; cd pipvenvmanager
 
+
+USAGE:
 pip freeze > requirements.txt
 cat requirements.txt | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y --break-system-packages
 python3 pipremoveold.py
@@ -14,17 +18,14 @@ python3 pipmanage.py
 
 EXECUTE FIRST:> python3 pipremoveold.py
 
-bash
-
 pip freeze > requirements.txt
-
 cat requirements.txt | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y --break-system-packages
-
 pip freeze | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y
 
-EXECUTE SECONDL:> python3 createvenvpips.py
+EXECUTE SECOND:> python3 createvenvpips.py
 
 
+EXECUTE THIRD:
 sudo apt remove python3-pip --purge && sudo apt clean && sudo apt autoremove && sudo apt update && sudo apt upgrade && sudo apt install python3-pip
 
 
@@ -32,6 +33,8 @@ sudo apt remove python3-pip --purge && sudo apt clean && sudo apt autoremove && 
 OTHER SOURCES:> https://github.com/JeremyEngram/managevenv
 
 
+
+EXPLANATIONS:
 
 python
 
@@ -70,9 +73,7 @@ Important Notes:
 
 
 
-
-
-
+MORE EXPLNATIONS OF CODE:
 
 To create a script that installs packages from a previously saved list within a virtual environment, you can follow these steps:
 
