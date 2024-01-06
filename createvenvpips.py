@@ -27,7 +27,7 @@ def install_packages_from_file(file_name, venv_name):
             if package:
                 subprocess.run(f"{activate_script} && pip install {package}", shell=True)
 
-venv_name = "myenv"  # Name of the virtual environment
-file_name = "frozen_packages.txt"  # File containing the list of packages
+venv_name = "omnicenv"  # Name of the virtual environment
+file_name = "requirements.txt"  # File containing the list of packages
 
 install_packages_from_file(file_name, venv_name)
