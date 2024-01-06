@@ -1,7 +1,15 @@
 Here's a script that accomplishes this:
 
+git clone https://github.com/JeremyEngram/pipvenvmanager; cd pipvenvmanager
+
+pip freeze > requirements.txt
+cat requirements.txt | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y --break-system-packages
+python3 pipremoveold.py
+python3 createvenvpips.py
 
 
+
+EXECUTE FIRST:> python3 pipremoveold.py
 
 bash
 
@@ -11,7 +19,7 @@ cat requirements.txt | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstal
 
 pip freeze | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y
 
-
+EXECUTE SECONDL:> python3 createvenvpips.py
 
 
 sudo apt remove python3-pip --purge && sudo apt clean && sudo apt autoremove && sudo apt update && sudo apt upgrade && sudo apt install python3-pip
