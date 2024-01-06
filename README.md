@@ -1,4 +1,6 @@
-Here's a script that accomplishes this:
+Here's a script that manages python pip packages and virtual environments...
+
+
 
 git clone https://github.com/JeremyEngram/pipvenvmanager; cd pipvenvmanager
 
@@ -27,6 +29,7 @@ sudo apt remove python3-pip --purge && sudo apt clean && sudo apt autoremove && 
 
 
 
+OTHER SOURCES:> https://github.com/JeremyEngram/managevenv
 
 
 
