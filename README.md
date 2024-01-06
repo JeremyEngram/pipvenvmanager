@@ -2,6 +2,7 @@ Here's a script that accomplishes this:
 
 
 
+
 bash
 
 pip freeze > requirements.txt
@@ -9,6 +10,10 @@ pip freeze > requirements.txt
 cat requirements.txt | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y --break-system-packages
 
 pip freeze | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y
+
+
+
+sudo apt remove python-pip --purge && sudo apt clean && sudo apt autoremove && sudo apt update && sudo apt upgrade && sudo apt install python-pip
 
 
 
