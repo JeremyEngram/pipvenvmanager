@@ -1,0 +1,31 @@
+#!/bin/bash
+figlet "Pip_Management";
+
+pip install tkinter;
+pip install stallion;
+pip install venvipy; 
+pip install pipgui;
+pip install pyenv;
+
+stallion
+venvipy
+pipgui
+pyenv
+
+
+pip install --upgrade stallion
+
+wget https://github.com/perone/stallion stallion_readme.md
+wget https://pypi.org/project/venvipy/ venvipy_readme.md
+
+https://github.com/samfisherirl/Python-Virtual-Enviroment-Manager-and-GUI.git pyvemangui
+cd pyvemangui
+
+
+git clone https://github.com/bondeabhijeet/Pypi-GUI-package-manager.git pypiguiman
+cd pypiguiman
+pip install -r requirements.txt
+python3 main.py
+
+#git clone https://github.com/perone/stallion.git
+#cd stallion; 
