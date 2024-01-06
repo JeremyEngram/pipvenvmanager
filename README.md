@@ -8,6 +8,9 @@ pip freeze > requirements.txt
 
 cat requirements.txt | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y --break-system-packages
 
+pip freeze | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y
+
+
 
 
 python
