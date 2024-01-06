@@ -1,26 +1,26 @@
-#!/bin/bash
+import subprocess
+import os
 
-# Ensure requirements.txt exists
-if [ ! -f requirements.txt ]; then
-    echo "requirements.txt not found"
-    exit 1
-fi
+# Function to create and activate a virtual environment
+def create_venv(venv_name):
+    subprocess.run([f'python3 -m venv {venv_name}'], shell=True)
 
-# Loop through each line in requirements.txt
-while IFS= read -r package; do
-    # Create a directory for the virtual environment
-    venv_dir="venv_$package"
-    echo "Creating virtual environment in $venv_dir for package $package..."
-    python3 -m venv "$venv_dir"
+# Function to install package in the virtual environment
+def install_package(venv_name, package):
+    subprocess.run([f'{venv_name}/bin/pip install {package}'], shell=True)
 
-    # Activate the virtual environment
-    source "$venv_dir/bin/activate"
+# Check if requirements.txt exists
+if not os.path.exists('requirements.txt'):
+    print('requirements.txt not found')
+    exit(1)
 
-    # Install the package
-    pip install $package
-
-    # Deactivate the virtual environment
-    deactivate
-
-    echo "Package $package installed in $venv_dir"
-done < requirements.txt
+# Read each line in requirements.txt and process
+with open('requirements.txt', 'r') as file:
+    for line in file:
+        package = line.strip()
+        if package:
+            venv_name = f'venv_{package}'
+            print(f'Creating virtual environment in {venv_name} for package {package}...')
+            create_venv(venv_name)
+            install_package(venv_name, package)
+            print(f'Package {package} installed in {venv_name}')
