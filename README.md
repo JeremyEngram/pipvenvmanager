@@ -5,6 +5,7 @@ Here's a script that accomplishes this:
 bash
 
 pip freeze > requirements.txt
+
 cat requirements.txt | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y
 
 
