@@ -1,4 +1,12 @@
-ere's a script that accomplishes this:
+Here's a script that accomplishes this:
+
+
+
+bash
+
+pip freeze --break-system-packages | grep -v "^\-e" | cut -d '=' -f 1 | xargs -n1 pip uninstall -y
+
+
 
 python
 
